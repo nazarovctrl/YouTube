@@ -56,6 +56,7 @@ public class SecurityConfig {
 
         http.csrf().disable().cors().disable().authorizeHttpRequests()
                 .requestMatchers("/swagger-ui/index.html").permitAll()
+                .requestMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
