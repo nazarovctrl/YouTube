@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 @Tag(name = "Authorization Controller", description = "This controller for authorization")
 public class AuthController {
-//    private final Logger log = LoggerFactory.getLogger(AuthController.class);
 
     private final AuthService service;
 
