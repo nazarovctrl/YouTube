@@ -57,12 +57,7 @@ public class ChannelController {
     public ResponseEntity<Boolean> updateChannelPhoto(@PathVariable String id, @RequestParam("file") MultipartFile file,
                                                       @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Updating {} channel photo: ", id);
-
-        // save photo via AttachService
-        // getPhoto id and set it channelService.photoId
-        AttachResponseDTO attachResponseDTO = attachService.saveToSystem(file, language);
-
-        Boolean result = channelService.updatePhoto(id, attachResponseDTO.getId(), getUserId(), language);
+        Boolean result = channelService.updatePhoto(id, file, getUserId(), language);
         return ResponseEntity.ok(result);
     }
 
@@ -72,12 +67,7 @@ public class ChannelController {
     public ResponseEntity<Boolean> updateChannelBanner(@PathVariable String id,  @RequestParam("file") MultipartFile file,
                                                        @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Updating {} channel banner: ", id);
-
-        // save photo via AttachService
-        // getPhoto id and set it channelService.photoId
-        AttachResponseDTO attachResponseDTO = attachService.saveToSystem(file, language);
-
-        Boolean result = channelService.updateBanner(id, attachResponseDTO.getId(), getUserId(), language);
+        Boolean result = channelService.updateBanner(id, file, getUserId(), language);
         return ResponseEntity.ok(result);
     }
 

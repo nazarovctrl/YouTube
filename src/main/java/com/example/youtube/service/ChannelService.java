@@ -1,5 +1,6 @@
 package com.example.youtube.service;
 
+import com.example.youtube.dto.AttachResponseDTO;
 import com.example.youtube.dto.channel.ChannelCreateDTO;
 import com.example.youtube.dto.channel.ChannelResponseDTO;
 import com.example.youtube.dto.channel.ChannelUpdatePropertiesDTO;
@@ -8,22 +9,22 @@ import com.example.youtube.entity.ProfileEntity;
 import com.example.youtube.enums.ChannelStatus;
 import com.example.youtube.enums.Language;
 import com.example.youtube.enums.ProfileRole;
+import com.example.youtube.exp.FileTypeIncorrectException;
 import com.example.youtube.exp.channel.ChannelAccessDeniedException;
 import com.example.youtube.exp.channel.ChannelNotExistsException;
 import com.example.youtube.repository.ChannelRepository;
 import com.example.youtube.repository.ProfileRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Slf4j
 @Service
@@ -34,10 +35,13 @@ public class ChannelService {
 
     private final ProfileRepository profileRepository;
 
-    public ChannelService(ChannelRepository channelRepository, ResourceBundleService resourceBundleService, ProfileRepository profileRepository) {
+    private final AttachService attachService;
+
+    public ChannelService(ChannelRepository channelRepository, ResourceBundleService resourceBundleService, ProfileRepository profileRepository, AttachService attachService) {
         this.channelRepository = channelRepository;
         this.resourceBundleService = resourceBundleService;
         this.profileRepository = profileRepository;
+        this.attachService = attachService;
     }
 
     public ChannelResponseDTO create(ChannelCreateDTO dto, Integer profileId) {
@@ -74,7 +78,14 @@ public class ChannelService {
     }
 
 
-    public Boolean updatePhoto(String id, String photoId, Integer profileId, Language language) {
+    public Boolean updatePhoto(String id, MultipartFile file, Integer profileId, Language language) {
+
+        String extension = attachService.getExtension(file.getOriginalFilename(), language);
+
+        if (!extension.equalsIgnoreCase("png") && !extension.equalsIgnoreCase("jpg")) {
+            throw new FileTypeIncorrectException(resourceBundleService.getMessage("file.type.incorrect", language));
+        }
+
         Optional<ChannelEntity> byId = channelRepository.findById(id);
         if (byId.isEmpty()) { //checking channel is exists
             log.warn("Channel not found: {} ", id);
@@ -88,11 +99,19 @@ public class ChannelService {
             throw new ChannelAccessDeniedException(resourceBundleService.getMessage("channel.no.access", language));
         }
 
-        channelEntity.setPhotoId(photoId);
+        AttachResponseDTO attachResponseDTO = attachService.saveToSystem(file, language);
+        channelEntity.setPhotoId(attachResponseDTO.getId());
         return true;
     }
 
-    public Boolean updateBanner(String id, String bannerId, Integer profileId, Language language) {
+    public Boolean updateBanner(String id, MultipartFile file, Integer profileId, Language language) {
+
+        String extension = attachService.getExtension(file.getOriginalFilename(), language);
+
+        if (!extension.equalsIgnoreCase("png") && !extension.equalsIgnoreCase("jpg")) {
+            throw new FileTypeIncorrectException(resourceBundleService.getMessage("file.type.incorrect", language));
+        }
+
         Optional<ChannelEntity> byId = channelRepository.findById(id);
         if (byId.isEmpty()) { //checking channel is exists
             log.warn("Channel not found: {} ", id);
@@ -106,7 +125,8 @@ public class ChannelService {
             throw new ChannelAccessDeniedException(resourceBundleService.getMessage("channel.no.access", language));
         }
 
-        channelEntity.setBannerId(bannerId);
+        AttachResponseDTO attachResponseDTO = attachService.saveToSystem(file, language);
+        channelEntity.setBannerId(attachResponseDTO.getId());
         return true;
     }
 

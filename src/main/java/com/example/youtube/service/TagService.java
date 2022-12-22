@@ -31,8 +31,10 @@ public class TagService {
         TagEntity tagEntity = new TagEntity();
         if (!dto.getName().startsWith("#")) {
             tagEntity.setName("#" + dto.getName());
+        } else {
+            tagEntity.setName(dto.getName());
         }
-        tagEntity.setName(dto.getName());
+
         tagEntity.setCreatedDate(LocalDateTime.now());
         tagRepository.save(tagEntity);
 
@@ -53,7 +55,11 @@ public class TagService {
         }
 
         TagEntity tagEntity = byId.get();
-        tagEntity.setName(tagUpdateDTO.getName());
+        if (!tagUpdateDTO.getName().startsWith("#")) {
+            tagEntity.setName("#" + tagUpdateDTO.getName());
+        } else {
+            tagEntity.setName(tagUpdateDTO.getName());
+        }
 
         tagRepository.save(tagEntity);
         return true;
@@ -63,7 +69,7 @@ public class TagService {
         Optional<TagEntity> byId = tagRepository.findById(id);
 
         if (byId.isEmpty()) {
-            log.warn("Tag not found: {}" , id);
+            log.warn("Tag not found: {}", id);
             throw new TagNotFound(resourceBundleService.getMessage("tag.not.found", language));
         }
 

@@ -51,7 +51,7 @@ public class TagController {
         return ResponseEntity.ok(result);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Tag List", description = "Get Tag List")
     @GetMapping("/list")
     public ResponseEntity<List<TagResponseDTO>> getList() {
