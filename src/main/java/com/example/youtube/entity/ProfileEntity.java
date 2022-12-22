@@ -37,13 +37,18 @@ public class ProfileEntity {
     @Column
     private ProfileRole role;
 
+    @Column(name = "photo_id")
+    private String photoId;
+    @OneToOne
+    @JoinColumn(name = "photo_id", insertable = false, updatable = false)
+    private AttachEntity photo;
 
     @Column
-    private Boolean visible=true;
+    private Boolean visible = true;
 
 
     @Column(name = "created_date")
-    private LocalDateTime createdDate=LocalDateTime.now();
+    private LocalDateTime createdDate = LocalDateTime.now();
 
 
 }

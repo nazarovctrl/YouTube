@@ -18,7 +18,7 @@ public class AttachEntity {
     @GenericGenerator(name = "attach_uuid", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(name = "orogin_name")
+    @Column(name = "origin_name")
     private String originName;
 
     @Column

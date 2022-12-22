@@ -186,7 +186,14 @@ public class AttachService {
         }
 
     }
+    public String getUrl(String imageId,Language language) {
+        Optional<AttachEntity> optional = repository.findById(imageId);
+        if (optional.isEmpty()) {
+            throw new FileNotFoundException(resourceBundleService.getMessage("not.found",language,"Attach"));
+        }
+        return attachDownloadUrl + optional.get().getId() + "." + optional.get().getType();
 
+    }
 
 
 }

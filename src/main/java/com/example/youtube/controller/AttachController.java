@@ -22,8 +22,7 @@ public class AttachController {
         this.service = service;
     }
 
-    @PreAuthorize("hasRole('USER')")
-    @PostMapping("/upload")
+    @PostMapping("/public/upload")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file,
                                     @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         AttachResponseDTO fileName = service.saveToSystem(file, language);
@@ -31,14 +30,12 @@ public class AttachController {
     }
 
 
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping(value = "/open/{fileName}", produces = MediaType.ALL_VALUE)
-    public byte[] open_general(@PathVariable("fileName") String fileName) {
+    @GetMapping(value = "/public/open/{fileName}", produces = MediaType.ALL_VALUE)
+    public byte[] open(@PathVariable("fileName") String fileName) {
         return service.open(fileName);
     }
 
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("/download/{fineName}")
+    @GetMapping("/public/download/{fineName}")
     public ResponseEntity<Resource> download(@PathVariable("fineName") String fileName,
                                              @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         Resource file = service.download(fileName, language);
@@ -55,7 +52,7 @@ public class AttachController {
     }
 
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{fileName}")
     public ResponseEntity<?> deleteById(@PathVariable("fileName") String fileName) {
         String result = service.deleteById(fileName);

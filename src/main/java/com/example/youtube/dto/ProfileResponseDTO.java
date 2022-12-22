@@ -23,6 +23,8 @@ public class ProfileResponseDTO {
     private ProfileStatus status;
     private ProfileRole role;
     private Boolean visible;
+
+    private String photoId;
     private LocalDateTime createdDate;
 
     public ProfileResponseDTO() {

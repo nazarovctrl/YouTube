@@ -31,7 +31,9 @@ public class AuthController {
     @PostMapping("/registration")
     private ResponseEntity<ProfileResponseDTO> registration(@Valid @RequestBody RegistrationDTO dto, @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Registration : email {}, name {}", dto.getEmail(), dto.getName());
+
         ProfileResponseDTO result = service.registration(dto, language);
+
         return ResponseEntity.ok(result);
     }
 
