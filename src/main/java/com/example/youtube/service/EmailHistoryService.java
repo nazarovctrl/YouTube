@@ -22,10 +22,7 @@ public class EmailHistoryService {
 
 
     public void create(EmailHistoryEntity entity) {
-
-        EmailHistoryEntity save = repository.save(entity);
-
-
+        repository.save(entity);
     }
 
     public List<EmailHistoryResponseDTO> getByEmail(String email) {

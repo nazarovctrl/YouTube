@@ -1,0 +1,22 @@
+### registration
+POST localhost:7070/auth/registration
+Content-Type: application/json
+
+{
+  "name": "Azimjon",
+  "surname": "Nazarov",
+  "email": "nazarovazimjon3@gmail.com",
+  "password": "200622az"
+}
+
+### login
+POST localhost:7070/auth/authorization
+Content-Type: application/json
+
+{
+  "email": "nazarovazimjon3@gmail.com",
+  "password": "200622az"
+}
+
+### init admin
+GET localhost:8080/init/admin

@@ -21,7 +21,7 @@ public class RegistrationDTO {
     @NotBlank
     private String password;
 
-    @NotBlank
+
     private String photo;
 
 

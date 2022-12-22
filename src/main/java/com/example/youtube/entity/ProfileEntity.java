@@ -38,8 +38,6 @@ public class ProfileEntity {
     private ProfileRole role;
 
 
-
-
     @Column
     private Boolean visible=true;
 

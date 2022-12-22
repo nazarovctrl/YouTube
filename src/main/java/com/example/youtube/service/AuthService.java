@@ -130,7 +130,7 @@ public class AuthService {
 
         ProfileEntity entity = optional.get();
         if (entity.getStatus().equals(ProfileStatus.BLOCK)) {
-            throw new StatusBlockException("Profile status block");
+            throw new StatusBlockException(resourceBundleService.getMessage("profile.status.block",language.name()));
         }
 
         // TODO

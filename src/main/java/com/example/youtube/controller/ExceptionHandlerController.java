@@ -58,5 +58,30 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 
+    @ExceptionHandler({CouldNotRead.class})
+    private ResponseEntity<?> handler(CouldNotRead e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+
+    @ExceptionHandler({FileNotFoundException.class})
+    private ResponseEntity<?> handler(FileNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+
+    @ExceptionHandler({FileUploadException.class})
+    private ResponseEntity<?> handler(FileUploadException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+
+    @ExceptionHandler({OriginalFileNameNullException.class})
+    private ResponseEntity<?> handler(OriginalFileNameNullException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+
+    @ExceptionHandler({SomethingWentWrong.class})
+    private ResponseEntity<?> handler(SomethingWentWrong e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+
 
 }
