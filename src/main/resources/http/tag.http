@@ -1,0 +1,26 @@
+### CREATE TAG(USER)
+POST http://localhost:7070/tag/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzM3NzYsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyMDE3NiwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.kpTFs443DYh_Ix7xnatud3EOEMfiuLOJ4f1WMv_R0r6ttE_LSukMqb9uSFvHshD9e10sOauX8cD09JtX7p_OEg
+Content-Type: application/json
+
+{
+  "name": "apple"
+}
+
+### UPDATE TAG(ADMIN)
+PUT http://localhost:7070/tag/update/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzM3NzYsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyMDE3NiwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.kpTFs443DYh_Ix7xnatud3EOEMfiuLOJ4f1WMv_R0r6ttE_LSukMqb9uSFvHshD9e10sOauX8cD09JtX7p_OEg
+Content-Type: application/json
+
+{
+  "name": "apple"
+}
+
+### UPDATE TAG(ADMIN)
+DELETE http://localhost:7070/tag/delete/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzM3NzYsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyMDE3NiwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.kpTFs443DYh_Ix7xnatud3EOEMfiuLOJ4f1WMv_R0r6ttE_LSukMqb9uSFvHshD9e10sOauX8cD09JtX7p_OEg
+
+
+### GET ALL TAGS(USER)
+GET http://localhost:7070/tag/list
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzM3NzYsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyMDE3NiwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.kpTFs443DYh_Ix7xnatud3EOEMfiuLOJ4f1WMv_R0r6ttE_LSukMqb9uSFvHshD9e10sOauX8cD09JtX7p_OEg
