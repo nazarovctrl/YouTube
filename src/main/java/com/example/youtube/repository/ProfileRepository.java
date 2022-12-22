@@ -12,6 +12,6 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer
     Optional<ProfileEntity> findByEmail(String mail);
     Optional<ProfileEntity> findByEmailAndPassword(String phone,String password);
 
-    Optional<ProfileEntity> findById(Integer id);
+
 
 }

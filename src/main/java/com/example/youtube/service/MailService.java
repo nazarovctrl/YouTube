@@ -9,14 +9,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MailService {
-    private final JavaMailSender javaMailSender;
 
+    @Autowired
+    private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String fromEmail;
 
-    public MailService(JavaMailSender javaMailSender) {
-        this.javaMailSender = javaMailSender;
-    }
+
 
     public void sendEmail(String toAccount, String subject, String text) {
         SimpleMailMessage msg = new SimpleMailMessage();
@@ -26,8 +25,6 @@ public class MailService {
         msg.setText(text);
         javaMailSender.send(msg);
     }
-
-
 
 
 }
