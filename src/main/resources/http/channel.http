@@ -1,0 +1,74 @@
+### Upload AVATAR
+POST http://localhost:7070/attach/upload
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="frame.PNG"
+
+< /home/colinmorgan/Pictures/avatar.png
+
+### Upload BANNER
+POST http://localhost:7070/attach/upload
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="frame.PNG"
+
+< /home/colinmorgan/Pictures/banner.jpg
+
+
+### CREATE CHANNEL
+POST http://localhost:7070/channel/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Content-Type: application/json
+
+{
+  "name": "MazgiTV",
+  "photoId": "1d959e97-17e5-400b-8710-327114f741ef",
+  "description": "Ijtimoiy tarmoqlardagi sahifalarimizga obuna bo'ling",
+  "bannerId": "1ed08b7e-67fb-4275-9bd8-d2827474c1a4"
+}
+
+
+### UPDATE CHANNEL DETAILS
+PUT http://localhost:7070/channel/update/64b9da7e-2813-41bc-8156-eb85a8da56a5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Content-Type: application/json
+
+{
+  "name": "CodeUz",
+  "description": "Dasturlash uchun foydali manbaa"
+}
+
+### UPDATE CHANNEL AVATAR
+PUT http://localhost:7070/channel/update/photo/64b9da7e-2813-41bc-8156-eb85a8da56a5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="frame.PNG"
+
+< /home/colinmorgan/Pictures/avatar.png
+
+### UPDATE CHANNEL BANNER
+PUT http://localhost:7070/channel/update/banner/64b9da7e-2813-41bc-8156-eb85a8da56a5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="frame.PNG"
+
+< /home/colinmorgan/Pictures/banner.jpg
+
+### ALL CHANNELS LIST WITH PAGINATION
+GET http://localhost:7070/channel/list?page=1&size=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+
+### GET CHANNEL BY ID
+GET http://localhost:7070/channel/get/64b9da7e-2813-41bc-8156-eb85a8da56a5
