@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 public class AttachEntity {
 
     @Id
-    @GeneratedValue(generator = "attach_uuid")
     @GenericGenerator(name = "attach_uuid", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
