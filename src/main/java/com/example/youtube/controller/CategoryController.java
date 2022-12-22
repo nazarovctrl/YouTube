@@ -19,8 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryController {
 
-
-    private  CategoryService service;
+    private CategoryService service;
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_USER','ROLE_ADMIN','VIEW_CATEGORY')")
