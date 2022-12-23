@@ -10,7 +10,6 @@ import com.example.youtube.enums.Language;
 import com.example.youtube.service.AttachService;
 import com.example.youtube.service.ChannelService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -24,12 +23,13 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 @RestController
 @RequestMapping("/channel")
-@Tag(name = "Channel Controller", description = "This api used to control channel")
 public class ChannelController {
     private final ChannelService channelService;
 
-    public ChannelController(ChannelService channelService) {
+    private final AttachService attachService;
+    public ChannelController(ChannelService channelService, AttachService attachService) {
         this.channelService = channelService;
+        this.attachService = attachService;
     }
 
 
@@ -65,7 +65,7 @@ public class ChannelController {
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Channel update banner method", description = "User use this method to update channel's banner")
     @PutMapping("/update/banner/{id}")
-    public ResponseEntity<Boolean> updateChannelBanner(@PathVariable String id, @RequestParam("file") MultipartFile file,
+    public ResponseEntity<Boolean> updateChannelBanner(@PathVariable String id,  @RequestParam("file") MultipartFile file,
                                                        @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Updating {} channel banner: ", id);
         Boolean result = channelService.updateBanner(id, file, getUserId(), language);
