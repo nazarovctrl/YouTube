@@ -78,7 +78,7 @@ public class AuthService {
             public synchronized void start() {
                 String sb = "Salom qalaysan \n" +
                         "Bu test message" +
-                        "Click the link : http://localhost:8080/auth/verification/email/" +
+                        "Click the link : http://localhost:7070/auth/verification/email/" +
                         JwtUtil.encode(entity.getEmail(), ProfileRole.ROLE_USER);
                 mailService.sendEmail(dto.getEmail(), "Complete Registration", sb);
 
