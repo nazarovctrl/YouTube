@@ -33,4 +33,7 @@ build/
 .vscode/
 ###
 
-3
+### other ###
+/src/main/resources/secure.txt
+/src/main/resources/talablar.txt
+/attaches/**
