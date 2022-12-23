@@ -1,6 +1,7 @@
 ### Upload AVATAR
-POST http://localhost:7070/attach/upload
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+### FROM ATTACH
+POST http://localhost:7070/attach/public/upload
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 
@@ -10,8 +11,8 @@ Content-Disposition: form-data; name="file"; filename="frame.PNG"
 < /home/colinmorgan/Pictures/avatar.png
 
 ### Upload BANNER
-POST http://localhost:7070/attach/upload
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+POST http://localhost:7070/attach/public/upload
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 
@@ -21,22 +22,22 @@ Content-Disposition: form-data; name="file"; filename="frame.PNG"
 < /home/colinmorgan/Pictures/banner.jpg
 
 
-### CREATE CHANNEL
+### CREATE CHANNEL (USER)
 POST http://localhost:7070/channel/create
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
 Content-Type: application/json
 
 {
   "name": "MazgiTV",
-  "photoId": "1d959e97-17e5-400b-8710-327114f741ef",
+  "photoId": "7c78c7c5-a15c-4248-9feb-8bfe51d06c3d",
   "description": "Ijtimoiy tarmoqlardagi sahifalarimizga obuna bo'ling",
-  "bannerId": "1ed08b7e-67fb-4275-9bd8-d2827474c1a4"
+  "bannerId": "fd8fcd5c-6ae2-4648-8124-28aa0036d75a"
 }
 
 
-### UPDATE CHANNEL DETAILS
-PUT http://localhost:7070/channel/update/64b9da7e-2813-41bc-8156-eb85a8da56a5
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+### UPDATE CHANNEL DETAILS (OWNER)
+PUT http://localhost:7070/channel/update/6658ba0c-a315-49d4-aeaf-01b14cdf1a92
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
 Content-Type: application/json
 
 {
@@ -44,9 +45,9 @@ Content-Type: application/json
   "description": "Dasturlash uchun foydali manbaa"
 }
 
-### UPDATE CHANNEL AVATAR
-PUT http://localhost:7070/channel/update/photo/64b9da7e-2813-41bc-8156-eb85a8da56a5
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+### UPDATE CHANNEL AVATAR (OWNER)
+PUT http://localhost:7070/channel/update/photo/a09e7cb9-57fe-4d34-83c3-b49ac45729ed
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 
@@ -55,9 +56,9 @@ Content-Disposition: form-data; name="file"; filename="frame.PNG"
 
 < /home/colinmorgan/Pictures/avatar.png
 
-### UPDATE CHANNEL BANNER
-PUT http://localhost:7070/channel/update/banner/64b9da7e-2813-41bc-8156-eb85a8da56a5
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+### UPDATE CHANNEL BANNER (OWNER)
+PUT http://localhost:7070/channel/update/banner/a09e7cb9-57fe-4d34-83c3-b49ac45729ed
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 
@@ -66,9 +67,18 @@ Content-Disposition: form-data; name="file"; filename="frame.PNG"
 
 < /home/colinmorgan/Pictures/banner.jpg
 
-### ALL CHANNELS LIST WITH PAGINATION
+### ALL CHANNELS LIST WITH PAGINATION (ADMIN)
 GET http://localhost:7070/channel/list?page=1&size=1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MDEyMzcsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb24zQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NzE3ODc2MzcsImlzcyI6Imt1bnV6IHRlc3QgcG9ydGFsaSJ9.YFomTFXtMaqkSIEo7cu42-NZ_LEiVl7dByDPvm-TWjskrvMnrQ9jrkEkOePZcGPM-jximHPauqT6_oq2TFMIVg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
 
 ### GET CHANNEL BY ID
-GET http://localhost:7070/channel/get/64b9da7e-2813-41bc-8156-eb85a8da56a5
+GET http://localhost:7070/channel/get/a09e7cb9-57fe-4d34-83c3-b49ac45729ed
+
+### GET OWNER CHANNELS PAGINATION (OWNER)
+GET http://localhost:7070/channel/my/channels?page=1&size=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
+
+### CHANGE STATUS ONLY(ADMIN OR OWNER)
+PUT http://localhost:7070/channel/update/status/a09e7cb9-57fe-4d34-83c3-b49ac45729ed
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
+
