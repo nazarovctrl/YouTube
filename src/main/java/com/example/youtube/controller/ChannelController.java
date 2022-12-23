@@ -10,6 +10,7 @@ import com.example.youtube.enums.Language;
 import com.example.youtube.service.AttachService;
 import com.example.youtube.service.ChannelService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class ChannelController {
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Channel create method", description = "User use this method to create channel")
     @PostMapping("/create")
-    public ResponseEntity<ChannelResponseDTO> create(@RequestBody ChannelCreateDTO dto) {
+    public ResponseEntity<ChannelResponseDTO> create(@Valid @RequestBody ChannelCreateDTO dto) {
         log.info("Channel creating : name = {}, description = {}", dto.getName(), dto.getDescription());
         ChannelResponseDTO result = channelService.create(dto, getUserId());
         return ResponseEntity.ok(result);
@@ -44,7 +45,7 @@ public class ChannelController {
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Channel update details method", description = "User use this method to update channel properties name, description, ")
     @PutMapping("/update/{id}")
-    public ResponseEntity<Boolean> updateChannel(@PathVariable String id, ChannelUpdatePropertiesDTO dto,
+    public ResponseEntity<Boolean> updateChannel(@PathVariable String id, @RequestBody ChannelUpdatePropertiesDTO dto,
                                                  @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Channel updating : name = {}, description = {}", dto.getName(), dto.getDescription());
         Boolean result = channelService.update(id, dto, getUserId(), language);
@@ -57,12 +58,7 @@ public class ChannelController {
     public ResponseEntity<Boolean> updateChannelPhoto(@PathVariable String id, @RequestParam("file") MultipartFile file,
                                                       @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Updating {} channel photo: ", id);
-
-        // save photo via AttachService
-        // getPhoto id and set it channelService.photoId
-        AttachResponseDTO attachResponseDTO = attachService.saveToSystem(file, language);
-
-        Boolean result = channelService.updatePhoto(id, attachResponseDTO.getId(), getUserId(), language);
+        Boolean result = channelService.updatePhoto(id, file, getUserId(), language);
         return ResponseEntity.ok(result);
     }
 
@@ -72,12 +68,7 @@ public class ChannelController {
     public ResponseEntity<Boolean> updateChannelBanner(@PathVariable String id,  @RequestParam("file") MultipartFile file,
                                                        @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Updating {} channel banner: ", id);
-
-        // save photo via AttachService
-        // getPhoto id and set it channelService.photoId
-        AttachResponseDTO attachResponseDTO = attachService.saveToSystem(file, language);
-
-        Boolean result = channelService.updateBanner(id, attachResponseDTO.getId(), getUserId(), language);
+        Boolean result = channelService.updateBanner(id, file, getUserId(), language);
         return ResponseEntity.ok(result);
     }
 
@@ -92,7 +83,7 @@ public class ChannelController {
     }
 
     @PreAuthorize("permitAll()")
-    @Operation(summary = "Channel list with Pagination", description = "Get Channel List Pagination Only Admins")
+    @Operation(summary = "Channel with id", description = "Get channel with id")
     @GetMapping("/get/{id}")
     public ResponseEntity<ChannelResponseDTO> getById(@PathVariable String id,
                                                       @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
@@ -100,7 +91,7 @@ public class ChannelController {
         return ResponseEntity.ok(result);
     }
 
-    @PreAuthorize("hasAnyRole()")
+    @PreAuthorize("hasRole('USER')")
     @Operation(summary = "User channel list with Pagination", description = "Get channel list with Pagination owned by current user")
     @GetMapping("/my/channels")
     public ResponseEntity<Page<ChannelResponseDTO>> getUserChannelsList(@RequestParam("page") Integer page,

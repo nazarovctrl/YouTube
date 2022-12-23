@@ -2,64 +2,93 @@ package com.example.youtube.service;
 
 import com.example.youtube.dto.CategoryDTO;
 import com.example.youtube.entity.CategoryEntity;
+import com.example.youtube.enums.Language;
+import com.example.youtube.exp.CategoryAlReadException;
 import com.example.youtube.exp.CategoryNotFoundException;
 import com.example.youtube.repository.CategoryRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
+import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+
 public class CategoryService {
+
     private final CategoryRepository repo;
+    private final ResourceBundleService resourceBundleService;
+
+    public CategoryService(CategoryRepository repo, ResourceBundleService resourceBundleService) {
+        this.repo = repo;
+        this.resourceBundleService = resourceBundleService;
+    }
+
+    public Page<CategoryDTO> getAllFromDb(int page, int size) {
+
+        List<CategoryDTO> list = new LinkedList<>();
+
+        Pageable pageable = PageRequest.of(page, size);
+
+        Page<CategoryEntity> page1 = repo.findAll(pageable);
 
 
-    public List<CategoryEntity> getAllFromDb(int page, int size, String search) {
+        for (CategoryEntity category : page1.getContent()) {
+            CategoryDTO dto = new CategoryDTO();
+            dto.setId(category.getId());
+            dto.setName(category.getName());
+            dto.setCreatedDate(category.getCreatedDate());
+            list.add(dto);
+        }
 
-        Pageable pageable = PageRequest.of(page - 1, size);
-        Page<CategoryEntity> Page;
-        if (search != null)
-            Page = repo.findByNameLikeIgnoreCase(pageable, search);
-        else
-            Page = (org.springframework.data.domain.Page<CategoryEntity>) repo.findAll();
-        return Page.getContent();
+
+        return new PageImpl<>(list, pageable, page1.getTotalElements());
     }
 
 
-    public CategoryEntity getById(Integer id) {
+    public CategoryEntity getById(Integer id,Language language) {
         Optional<CategoryEntity> optional = repo.findById(id);
         if (optional.isEmpty()) {
-            throw new CategoryNotFoundException("Article Not Found");
+            throw new CategoryNotFoundException(resourceBundleService.getMessage("category.not.found",language));
         }
         return optional.get();
     }
 
-    public void deleteById(Integer id) {
+    public Boolean deleteById(Integer id,Language language) {
+        getById(id, language);
+
         repo.deleteById(id);
+        return true;
     }
 
-    public void add(CategoryDTO dto) {
-        CategoryEntity entity = new CategoryEntity();
-        entity.setName(dto.getName());
-        entity.setCreatedDate(dto.getCreatedDate());
-        repo.save(entity);
+    public String add(CategoryDTO dto,Language language) {
+
+        CategoryEntity entity = repo.findByName(dto.getName());
+
+        if (entity != null) {
+            throw new CategoryAlReadException(resourceBundleService.getMessage("category.alRead",language));
+        }
+
+        CategoryEntity entity1 = new CategoryEntity();
+        entity1.setName(dto.getName());
+        entity1.setCreatedDate(LocalDateTime.now());
+        repo.save(entity1);
+        return "add";
     }
 
-    public CategoryDTO edit(CategoryDTO dto, Integer id) {
+    public CategoryDTO edit(CategoryDTO dto, Integer id,Language language) {
         Optional<CategoryEntity> optional = repo.findById(id);
         if (optional.isEmpty()) {
-            throw new CategoryNotFoundException("Category  not found");
+            throw new CategoryNotFoundException(resourceBundleService.getMessage("category.not.found",language));
         }
 
 
         CategoryEntity entity = new CategoryEntity();
-        entity.setId(optional.get().getId());
-        entity.setCreatedDate(optional.get().getCreatedDate());
+        entity.setName(dto.getName());
 
 
         repo.save(entity);

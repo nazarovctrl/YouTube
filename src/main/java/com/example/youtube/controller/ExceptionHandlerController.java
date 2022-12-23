@@ -1,6 +1,9 @@
 package com.example.youtube.controller;
 
 import com.example.youtube.exp.*;
+import com.example.youtube.exp.channel.ChannelAccessDeniedException;
+import com.example.youtube.exp.channel.ChannelNotExistsException;
+import com.example.youtube.exp.tag.TagNotFound;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -88,5 +91,18 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 
+    @ExceptionHandler({ChannelNotExistsException.class})
+    private ResponseEntity<?> handler(ChannelNotExistsException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
 
+    @ExceptionHandler({ChannelAccessDeniedException.class})
+    private ResponseEntity<?> handler(ChannelAccessDeniedException e) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+    }
+
+    @ExceptionHandler({TagNotFound.class})
+    private ResponseEntity<?> handler(TagNotFound e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
 }
