@@ -10,6 +10,7 @@ import com.example.youtube.enums.Language;
 import com.example.youtube.service.AttachService;
 import com.example.youtube.service.ChannelService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class ChannelController {
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Channel create method", description = "User use this method to create channel")
     @PostMapping("/create")
-    public ResponseEntity<ChannelResponseDTO> create(@RequestBody ChannelCreateDTO dto) {
+    public ResponseEntity<ChannelResponseDTO> create(@Valid @RequestBody ChannelCreateDTO dto) {
         log.info("Channel creating : name = {}, description = {}", dto.getName(), dto.getDescription());
         ChannelResponseDTO result = channelService.create(dto, getUserId());
         return ResponseEntity.ok(result);

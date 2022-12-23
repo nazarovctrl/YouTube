@@ -6,6 +6,7 @@ import com.example.youtube.dto.tag.TagUpdateDTO;
 import com.example.youtube.enums.Language;
 import com.example.youtube.service.TagService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,7 +27,7 @@ public class TagController {
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Tag create method", description = "User use this method to create tag")
     @PostMapping("/create")
-    public ResponseEntity<TagResponseDTO> create(@RequestBody TagCreateDTO dto) {
+    public ResponseEntity<TagResponseDTO> create(@Valid @RequestBody TagCreateDTO dto) {
         TagResponseDTO result = tagService.create(dto);
         return ResponseEntity.ok(result);
     };
