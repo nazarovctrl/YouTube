@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 @RestController
 @RequestMapping("/profile")
-@Tag(name = "Authorization Controller", description = "This controller for authorization")
+@Tag(name = "Profile Controller", description = "This controller for profile")
 public class ProfileController {
 
 
