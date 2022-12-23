@@ -1,6 +1,6 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.AttachResponseDTO;
+import com.example.youtube.dto.attach.AttachResponseDTO;
 import com.example.youtube.entity.AttachEntity;
 import com.example.youtube.enums.Language;
 import com.example.youtube.exp.*;

@@ -1,7 +1,7 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.AttachResponseDTO;
-import com.example.youtube.dto.ProfileResponseDTO;
+import com.example.youtube.dto.attach.AttachResponseDTO;
+import com.example.youtube.dto.profile.ProfileResponseDTO;
 import com.example.youtube.dto.auth.AdminRegistrationDTO;
 import com.example.youtube.dto.profile.ProfileDetailDTO;
 import com.example.youtube.entity.EmailHistoryEntity;
@@ -18,7 +18,6 @@ import com.example.youtube.util.JwtUtil;
 import com.example.youtube.util.MD5;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

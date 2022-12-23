@@ -1,0 +1,15 @@
+### create
+POST localhost:7070/video/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MjEzMTksInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTkwNzcxOSwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.TGt2QNi7E1crYdpX2VYj5tHH7CtplBP44PNkjSbJch7QDRRi4SBbP0yHhWI3DWmUk3UVjySBb-b2v6eOnxN-Rg
+Content-Type: application/json
+
+{
+  "title": "Test video",
+  "description": "Bu mening videoyim layk bosib kamment qoldiring",
+  "previewAttachId": "42252b14-38cc-4e23-8233-3d69992c2956",
+  "attachId": "8aee5b45-e832-4e05-86e6-63fa2c6a7f04",
+  "categoryId": 1,
+  "channelId": "bde89055-afd0-4080-aca7-744e99edc601",
+  "type": "SHORT",
+  "duration": "2"
+}

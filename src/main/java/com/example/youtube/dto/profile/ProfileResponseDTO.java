@@ -1,4 +1,4 @@
-package com.example.youtube.dto;
+package com.example.youtube.dto.profile;
 
 import com.example.youtube.enums.ProfileRole;
 import com.example.youtube.enums.ProfileStatus;

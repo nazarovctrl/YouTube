@@ -1,0 +1,13 @@
+### create
+POST localhost:7070/category/add
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MjE2NTcsInVzZXJuYW1lIjoiYWRtaW5jZWVrQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNjcxOTA4MDU3LCJpc3MiOiJrdW51eiB0ZXN0IHBvcnRhbGkifQ.XkZfB22DDNqB4QVoqpPK_Dzlt2ZoKgQJs-gIUrHLLKAF0tRphxnjJOTN7f-I55t82yM5PISYOOqZylW6ZgHOKg
+Content-Type: application/json
+
+{
+  "name": "Yumr"
+}
+
+
+### get
+GET localhost:7070/category/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MTgzNzMsInVzZXJuYW1lIjoiYWRtaW5jZWVrQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNjcxOTA0NzczLCJpc3MiOiJrdW51eiB0ZXN0IHBvcnRhbGkifQ.zL1zONb-V2a3agzT2UtHbw-W5L_qABODeZBtULVYgekoNZCblMrWSHTCmLMgEEFK41MwTtY24pDY7HbXLl8jIQ

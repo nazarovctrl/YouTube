@@ -2,14 +2,13 @@ package com.example.youtube.controller;
 
 
 import com.example.youtube.config.security.CustomUserDetails;
-import com.example.youtube.dto.ProfileResponseDTO;
+import com.example.youtube.dto.profile.ProfileResponseDTO;
 import com.example.youtube.dto.auth.AdminRegistrationDTO;
 import com.example.youtube.dto.profile.ProfileDetailDTO;
 import com.example.youtube.enums.Language;
 import com.example.youtube.service.ProfileService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

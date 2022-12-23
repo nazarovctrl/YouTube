@@ -24,14 +24,14 @@ Content-Disposition: form-data; name="file"; filename="frame.PNG"
 
 ### CREATE CHANNEL (USER)
 POST http://localhost:7070/channel/create
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MjEzMTksInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTkwNzcxOSwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.TGt2QNi7E1crYdpX2VYj5tHH7CtplBP44PNkjSbJch7QDRRi4SBbP0yHhWI3DWmUk3UVjySBb-b2v6eOnxN-Rg
 Content-Type: application/json
 
 {
   "name": "MazgiTV",
-  "photoId": "7c78c7c5-a15c-4248-9feb-8bfe51d06c3d",
+  "photoId": "a3d7e048-5b21-4504-9be0-1da5d0130490",
   "description": "Ijtimoiy tarmoqlardagi sahifalarimizga obuna bo'ling",
-  "bannerId": "fd8fcd5c-6ae2-4648-8124-28aa0036d75a"
+  "bannerId": "a3d7e048-5b21-4504-9be0-1da5d0130490"
 }
 
 

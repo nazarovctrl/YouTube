@@ -1,6 +1,6 @@
 package com.example.youtube.controller;
 
-import com.example.youtube.dto.AttachResponseDTO;
+import com.example.youtube.dto.attach.AttachResponseDTO;
 import com.example.youtube.enums.Language;
 import com.example.youtube.service.AttachService;
 import io.swagger.v3.oas.annotations.Operation;

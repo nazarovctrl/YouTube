@@ -2,7 +2,7 @@ package com.example.youtube.service;
 
 
 import com.example.youtube.dto.JwtDTO;
-import com.example.youtube.dto.ProfileResponseDTO;
+import com.example.youtube.dto.profile.ProfileResponseDTO;
 import com.example.youtube.dto.auth.LoginDTO;
 import com.example.youtube.dto.auth.LoginResponseDTO;
 import com.example.youtube.dto.auth.RegistrationDTO;
