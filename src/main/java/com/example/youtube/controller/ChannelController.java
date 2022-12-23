@@ -28,11 +28,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class ChannelController {
     private final ChannelService channelService;
 
-    private final AttachService attachService;
-
-    public ChannelController(ChannelService channelService, AttachService attachService) {
+    public ChannelController(ChannelService channelService) {
         this.channelService = channelService;
-        this.attachService = attachService;
     }
 
 
