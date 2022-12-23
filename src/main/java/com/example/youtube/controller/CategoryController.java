@@ -5,7 +5,6 @@ import com.example.youtube.entity.CategoryEntity;
 import com.example.youtube.enums.Language;
 import com.example.youtube.service.CategoryService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpEntity;
