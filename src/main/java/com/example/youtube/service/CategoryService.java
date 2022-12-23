@@ -1,6 +1,6 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.CategoryDTO;
+import com.example.youtube.dto.category.CategoryDTO;
 import com.example.youtube.entity.CategoryEntity;
 import com.example.youtube.enums.Language;
 import com.example.youtube.exp.CategoryNotFoundException;
@@ -63,7 +63,7 @@ public class CategoryService {
         return true;
     }
 
-    public String add(CategoryDTO dto,Language language) {
+    public String add(CategoryDTO dto, Language language) {
 
         CategoryEntity entity = repo.findByName(dto.getName());
 
