@@ -34,7 +34,7 @@ public class TagController {
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Tag update method", description = " ADMIN CAN UPDATE TAG NAME ")
     @PutMapping("/update/{id}")
-    public ResponseEntity<Boolean> update(@PathVariable Integer id, TagUpdateDTO dto,
+    public ResponseEntity<Boolean> update(@PathVariable Integer id, @RequestBody TagUpdateDTO dto,
                                                  @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Tag is updating: {}, {}", id, dto.getName());
         Boolean result = tagService.updateById(id, dto, language);

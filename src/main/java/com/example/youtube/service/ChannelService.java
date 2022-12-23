@@ -73,6 +73,7 @@ public class ChannelService {
 
         channelEntity.setName(dto.getName());
         channelEntity.setDescription(dto.getDescription());
+
         channelRepository.save(channelEntity);
         return true;
     }

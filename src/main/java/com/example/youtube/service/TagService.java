@@ -73,7 +73,7 @@ public class TagService {
             throw new TagNotFound(resourceBundleService.getMessage("tag.not.found", language));
         }
 
-        tagRepository.deleteById(id);
+        tagRepository.delete(byId.get());
         return true;
     }
 

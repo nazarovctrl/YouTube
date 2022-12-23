@@ -44,7 +44,7 @@ public class ChannelController {
     @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Channel update details method", description = "User use this method to update channel properties name, description, ")
     @PutMapping("/update/{id}")
-    public ResponseEntity<Boolean> updateChannel(@PathVariable String id, ChannelUpdatePropertiesDTO dto,
+    public ResponseEntity<Boolean> updateChannel(@PathVariable String id, @RequestBody ChannelUpdatePropertiesDTO dto,
                                                  @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Channel updating : name = {}, description = {}", dto.getName(), dto.getDescription());
         Boolean result = channelService.update(id, dto, getUserId(), language);
@@ -82,7 +82,7 @@ public class ChannelController {
     }
 
     @PreAuthorize("permitAll()")
-    @Operation(summary = "Channel list with Pagination", description = "Get Channel List Pagination Only Admins")
+    @Operation(summary = "Channel with id", description = "Get channel with id")
     @GetMapping("/get/{id}")
     public ResponseEntity<ChannelResponseDTO> getById(@PathVariable String id,
                                                       @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
@@ -90,7 +90,7 @@ public class ChannelController {
         return ResponseEntity.ok(result);
     }
 
-    @PreAuthorize("hasAnyRole()")
+    @PreAuthorize("hasRole('USER')")
     @Operation(summary = "User channel list with Pagination", description = "Get channel list with Pagination owned by current user")
     @GetMapping("/my/channels")
     public ResponseEntity<Page<ChannelResponseDTO>> getUserChannelsList(@RequestParam("page") Integer page,
