@@ -22,6 +22,7 @@ public class EmailHistoryService {
 
 
     public void create(EmailHistoryEntity entity) {
+        System.out.println("AA");
         repository.save(entity);
     }
 

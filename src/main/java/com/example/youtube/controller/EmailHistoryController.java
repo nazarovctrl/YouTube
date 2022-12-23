@@ -23,7 +23,9 @@ public class EmailHistoryController {
     @GetMapping("/get_by_email")
     public ResponseEntity<?> getByEmail(@RequestBody EmailHistoryResponseDTO dto) {
         List<EmailHistoryResponseDTO> result = service.getByEmail(dto.getEmail());
+        System.out.println("AA");
         return ResponseEntity.ok(result);
+
     }
 
     @PreAuthorize("hasRole('ADMIN')")
