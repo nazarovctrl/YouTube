@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoryRepository extends CrudRepository<CategoryEntity, Integer> {
-    Page<CategoryEntity> findByNameLikeIgnoreCase(Pageable pageable, String search);
 
+
+    Page<CategoryEntity> findAll(Pageable pageable);
+
+
+    CategoryEntity findByName(String name);
 }
