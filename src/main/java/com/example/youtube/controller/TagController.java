@@ -6,6 +6,7 @@ import com.example.youtube.dto.tag.TagUpdateDTO;
 import com.example.youtube.enums.Language;
 import com.example.youtube.service.TagService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/tag")
+@Tag(name = "Channel Controller", description = "This api used to control channel")
 public class TagController {
     private final TagService tagService;
 
@@ -30,13 +32,13 @@ public class TagController {
     public ResponseEntity<TagResponseDTO> create(@Valid @RequestBody TagCreateDTO dto) {
         TagResponseDTO result = tagService.create(dto);
         return ResponseEntity.ok(result);
-    };
+    }
 
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Tag update method", description = " ADMIN CAN UPDATE TAG NAME ")
     @PutMapping("/update/{id}")
     public ResponseEntity<Boolean> update(@PathVariable Integer id, @RequestBody TagUpdateDTO dto,
-                                                 @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
+                                          @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Tag is updating: {}, {}", id, dto.getName());
         Boolean result = tagService.updateById(id, dto, language);
         return ResponseEntity.ok(result);
@@ -46,7 +48,7 @@ public class TagController {
     @Operation(summary = "Tag delete method", description = " ADMIN CAN DELETE TAG ")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Integer id,
-                                                 @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
+                                          @RequestHeader(value = "Accept-Language", defaultValue = "RU") Language language) {
         log.info("Tag is deleting: {}", id);
         Boolean result = tagService.deleteById(id, language);
         return ResponseEntity.ok(result);
