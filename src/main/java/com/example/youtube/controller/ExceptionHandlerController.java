@@ -4,6 +4,7 @@ import com.example.youtube.exp.*;
 import com.example.youtube.exp.channel.ChannelAccessDeniedException;
 import com.example.youtube.exp.channel.ChannelNotExistsException;
 import com.example.youtube.exp.tag.TagNotFound;
+import com.example.youtube.exp.videoLike.AlreadyLikedException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -103,6 +104,10 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({TagNotFound.class})
     private ResponseEntity<?> handler(TagNotFound e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
+    @ExceptionHandler({AlreadyLikedException.class})
+    private ResponseEntity<?> handler(AlreadyLikedException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
 }
