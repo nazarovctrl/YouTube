@@ -4,7 +4,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MjE2NTcsInVzZXJuYW1lI
 Content-Type: application/json
 
 {
-  "name": "Yumr"
+  "name": "Action"
 }
 
 

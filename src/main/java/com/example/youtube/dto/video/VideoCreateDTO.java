@@ -31,7 +31,6 @@ public class VideoCreateDTO {
     @Min(value = 0)
     private Integer categoryId;
 
-    private List<TagShortDTO> tagList;
 
     @NotBlank
     private String channelId;

@@ -9,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
 
+
 @Getter
 @Setter
 
@@ -83,6 +84,16 @@ public class VideoEntity {
 
     @Column(name = "dislike_count")
     private Integer dislikeCount = 0;
+
+
+    @Column(name = "owner_id")
+    private Integer ownerId;
+    @ManyToOne
+    @JoinColumn(name = "owner_id", insertable = false, updatable = false)
+    private ProfileEntity owner;
+
+    @Column
+    private Double duration;
 
 
 }

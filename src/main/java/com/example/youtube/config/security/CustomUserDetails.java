@@ -64,4 +64,8 @@ public class CustomUserDetails implements UserDetails {
     public Integer getId() {
         return id;
     }
+
+    public ProfileRole getRole() {
+        return role;
+    }
 }

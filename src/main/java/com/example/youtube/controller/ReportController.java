@@ -1,16 +1,13 @@
 package com.example.youtube.controller;
 
-import com.example.youtube.dto.CategoryDTO;
 import com.example.youtube.dto.ReportDTO;
 import com.example.youtube.dto.report.ReportInfo;
 import com.example.youtube.entity.CategoryEntity;
 import com.example.youtube.entity.ReportEntity;
 import com.example.youtube.enums.Language;
-import com.example.youtube.service.CategoryService;
 import com.example.youtube.service.ReportService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Max;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpEntity;

@@ -1,9 +1,6 @@
 package com.example.youtube.controller;
 
 import com.example.youtube.config.security.CustomUserDetails;
-import com.example.youtube.dto.VideoShortInfo;
-import com.example.youtube.dto.tag.TagResponseDTO;
-import com.example.youtube.dto.video.VideoCreateDTO;
 import com.example.youtube.dto.videoLike.VideoLikeCreateDTO;
 import com.example.youtube.dto.videoLike.VideoLikeInfo;
 import com.example.youtube.dto.videoLike.VideoLikeResponseDTO;

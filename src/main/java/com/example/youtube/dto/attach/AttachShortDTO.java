@@ -9,6 +9,4 @@ public class AttachShortDTO {
     private String id;
     private String url;
     private Double duration;
-
-
 }

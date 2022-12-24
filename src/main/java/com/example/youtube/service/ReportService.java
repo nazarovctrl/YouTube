@@ -1,6 +1,5 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.CategoryDTO;
 import com.example.youtube.dto.ReportDTO;
 import com.example.youtube.dto.attach.PreviewAttachDTO;
 import com.example.youtube.dto.profile.ProfileInfoDTO;
