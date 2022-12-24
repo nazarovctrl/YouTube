@@ -1,4 +1,4 @@
-package com.example.youtube.dto;
+package com.example.youtube.dto.video;
 
 import com.example.youtube.dto.attach.PreviewAttachDTO;
 import com.example.youtube.dto.channel.ChannelShortDTO;
