@@ -1,6 +1,7 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.AttachResponseDTO;
+
+import com.example.youtube.dto.attach.AttachResponseDTO;
 import com.example.youtube.dto.channel.ChannelCreateDTO;
 import com.example.youtube.dto.channel.ChannelResponseDTO;
 import com.example.youtube.dto.channel.ChannelUpdatePropertiesDTO;
