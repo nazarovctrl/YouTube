@@ -3,6 +3,7 @@ package com.example.youtube.service;
 import com.example.youtube.dto.category.CategoryDTO;
 import com.example.youtube.entity.CategoryEntity;
 import com.example.youtube.enums.Language;
+import com.example.youtube.exp.CategoryAlreadyExistsException;
 import com.example.youtube.exp.CategoryNotFoundException;
 import com.example.youtube.repository.CategoryRepository;
 import org.springframework.data.domain.Page;
@@ -68,7 +69,7 @@ public class CategoryService {
         CategoryEntity entity = repo.findByName(dto.getName());
 
         if (entity != null) {
-//            throw new CategoryAlReadException(resourceBundleService.getMessage("category.alRead",language));
+            throw new CategoryAlreadyExistsException(resourceBundleService.getMessage("category.alRead",language));
         }
 
         CategoryEntity entity1 = new CategoryEntity();
