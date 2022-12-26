@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ChannelInfoDTO {
+
     private String id;
     private String name;
     private PreviewAttachDTO photo;
