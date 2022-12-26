@@ -37,13 +37,15 @@ public class ChannelEntity {
 
     @Column(name = "banner_id")
     private String bannerId;
-    @ManyToOne
+
+    @OneToOne
     @JoinColumn(name = "banner_id", insertable = false, updatable = false)
     private AttachEntity banner;
 
     @Column(name = "profile_id")
     private Integer profileId;
-    @ManyToOne
+
+    @OneToOne
     @JoinColumn(name = "profile_id", insertable = false, updatable = false)
     private ProfileEntity profile;
 

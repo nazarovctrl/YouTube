@@ -1,6 +1,5 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.profile.ProfileInfoDTO;
 import com.example.youtube.dto.profile.ProfileShortDTO;
 import com.example.youtube.exp.*;
 import com.example.youtube.config.security.CustomUserDetails;
@@ -72,7 +71,6 @@ public class VideoService {
         entity.setType(dto.getType());
         entity.setDuration(dto.getDuration());
         entity.setStatus(VideoStatus.PRIVATE);
-
 
         repository.save(entity);
 

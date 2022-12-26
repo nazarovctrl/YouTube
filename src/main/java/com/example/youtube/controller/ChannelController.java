@@ -1,13 +1,10 @@
 package com.example.youtube.controller;
 
 import com.example.youtube.config.security.CustomUserDetails;
-
 import com.example.youtube.dto.channel.ChannelCreateDTO;
 import com.example.youtube.dto.channel.ChannelResponseDTO;
 import com.example.youtube.dto.channel.ChannelUpdatePropertiesDTO;
-
 import com.example.youtube.enums.Language;
-
 import com.example.youtube.service.ChannelService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
