@@ -3,6 +3,8 @@ package com.example.youtube.controller;
 import com.example.youtube.exp.*;
 import com.example.youtube.exp.channel.ChannelAccessDeniedException;
 import com.example.youtube.exp.channel.ChannelNotExistsException;
+import com.example.youtube.exp.comment.CommentNoAccessException;
+import com.example.youtube.exp.comment.CommentNotFoundException;
 import com.example.youtube.exp.tag.TagNotFound;
 import com.example.youtube.exp.videoLike.AlreadyLikedException;
 import org.springframework.http.HttpHeaders;
@@ -123,6 +125,16 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({VideoNotPublicException.class})
     private ResponseEntity<?> handler(VideoNotPublicException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
+
+    @ExceptionHandler({CommentNoAccessException.class})
+    private ResponseEntity<?> handler(CommentNoAccessException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
+
+    @ExceptionHandler({CommentNotFoundException.class})
+    private ResponseEntity<?> handler(CommentNotFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
 }

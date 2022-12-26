@@ -1,7 +1,7 @@
 ### Upload AVATAR
 ### FROM ATTACH
 POST http://localhost:7070/attach/public/upload
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MzIxNzIsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTkxODU3MiwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.x7R9egK8UtXFBHHiTkHb-2-1MqAQMDbhpnbE-i3eHO6wtqIdRmT8R66o-65sp983ivA_zT0iFFecUqD5Z1vJzA
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 
@@ -12,7 +12,7 @@ Content-Disposition: form-data; name="file"; filename="frame.PNG"
 
 ### Upload BANNER
 POST http://localhost:7070/attach/public/upload
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE3MzgzMTMsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTgyNDcxMywiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.Q5zTV36AxqAYDNyK0hRL5pPZTpFn3PY18DrO3kZ7TRuN1seDW5aiSjLVHq5yGdhZ_5jNsPkOlhCUNUlrfC_0hA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MzIxNzIsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTkxODU3MiwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.x7R9egK8UtXFBHHiTkHb-2-1MqAQMDbhpnbE-i3eHO6wtqIdRmT8R66o-65sp983ivA_zT0iFFecUqD5Z1vJzA
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 
@@ -24,14 +24,14 @@ Content-Disposition: form-data; name="file"; filename="frame.PNG"
 
 ### CREATE CHANNEL (USER)
 POST http://localhost:7070/channel/create
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MjEzMTksInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTkwNzcxOSwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.TGt2QNi7E1crYdpX2VYj5tHH7CtplBP44PNkjSbJch7QDRRi4SBbP0yHhWI3DWmUk3UVjySBb-b2v6eOnxN-Rg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NzE4MzE1NTQsInVzZXJuYW1lIjoibmF6YXJvdmF6aW1qb244ODhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTY3MTkxNzk1NCwiaXNzIjoia3VudXogdGVzdCBwb3J0YWxpIn0.wKgEp7RmZic6MJVaBniI9EFtOle10HKdheD2qgdWhXcHi2PO4U2Z4HkHkKpTeo9B7e2M-18BQH31eRLg75g5Xg
 Content-Type: application/json
 
 {
   "name": "MazgiTV",
-  "photoId": "a3d7e048-5b21-4504-9be0-1da5d0130490",
+  "photoId": "9a6de6de-c1b0-41b3-bcb0-6651c008cfe7",
   "description": "Ijtimoiy tarmoqlardagi sahifalarimizga obuna bo'ling",
-  "bannerId": "a3d7e048-5b21-4504-9be0-1da5d0130490"
+  "bannerId": "1801cd8d-6cb7-438d-bd1e-9c0bc8fb5a92"
 }
 
 

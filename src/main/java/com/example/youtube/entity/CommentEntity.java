@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "comment")
 
@@ -42,6 +44,9 @@ public class CommentEntity {
     @ManyToOne
     @JoinColumn(name = "reply_id", insertable = false, updatable = false)
     private CommentEntity reply;
+
+    @Column
+    private LocalDateTime createdDate;
 
     @Column(name = "like_count")
     private Integer likeCount = 0;
