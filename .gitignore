@@ -39,3 +39,6 @@ build/
 /attaches/**
 /3/
 /E:3/
+
+### Logs ###
+*.log
