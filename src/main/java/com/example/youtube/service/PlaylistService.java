@@ -12,7 +12,8 @@ import com.example.youtube.enums.PlaylistStatus;
 import com.example.youtube.enums.ProfileRole;
 import com.example.youtube.exp.channel.ChannelAccessDeniedException;
 import com.example.youtube.exp.channel.ChannelNotExistsException;
-import com.example.youtube.exp.playlist.PlaylistNotFound;
+import com.example.youtube.exp.playlist.PlaylistNotFoundException;
+import com.example.youtube.exp.playlist.PlaylistNoAccessException;
 import com.example.youtube.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,7 +85,7 @@ public class PlaylistService {
 
         if (byId.isEmpty()) {
             log.warn("Playlist not found: {} ", id);
-            throw new PlaylistNotFound(resourceBundleService.getMessage("playlist.not.found", language));
+            throw new PlaylistNotFoundException(resourceBundleService.getMessage("playlist.not.found", language));
         }
 
         PlaylistEntity playlistEntity = byId.get();
@@ -143,7 +144,7 @@ public class PlaylistService {
 
         if (byId.isEmpty()) {
             log.warn("Playlist not found: {}", id);
-            throw new PlaylistNotFound(resourceBundleService.getMessage("playlist.not.found", language));
+            throw new PlaylistNotFoundException(resourceBundleService.getMessage("playlist.not.found", language));
         }
 
         PlaylistEntity playlistEntity = byId.get();
@@ -152,7 +153,7 @@ public class PlaylistService {
 
             if (profile.getRole() != ProfileRole.ROLE_ADMIN) {
                 log.warn("Access denied: {} from ", id, profileId);
-                throw new PlaylistNotFound(resourceBundleService.getMessage("playlist.no.access", language));
+                throw new PlaylistNoAccessException(resourceBundleService.getMessage("playlist.no.access", language));
             }
 
             playlistRepository.delete(playlistEntity);
