@@ -1,6 +1,6 @@
 -- INCREASE & DECREASE LIKE
 -- AFTER CREATE
-CREATE OR REPLACE FUNCTION increase_like_function()
+CREATE FUNCTION increase_like_function()
 RETURNS TRIGGER AS
 $$
 BEGIN
@@ -17,7 +17,7 @@ CREATE TRIGGER increase_like
     EXECUTE PROCEDURE increase_like_function();
 
 -- AFTER UPDATE
-CREATE OR REPLACE FUNCTION like_update_function()
+CREATE FUNCTION like_update_function()
 RETURNS TRIGGER AS
 $$
 BEGIN
@@ -37,7 +37,7 @@ CREATE TRIGGER update_like
 
 
 -- AFTER DELETE
-CREATE OR REPLACE FUNCTION like_update_function()
+CREATE FUNCTION like_delete_function()
 RETURNS TRIGGER AS
 $$
 BEGIN
@@ -49,7 +49,7 @@ $$
 LANGUAGE 'plpgsql';
 
 
-CREATE TRIGGER update_like
+CREATE TRIGGER delete_like
     AFTER DELETE ON video_like
     FOR EACH ROW
-    EXECUTE PROCEDURE like_update_function();
+    EXECUTE PROCEDURE like_delete_function();
