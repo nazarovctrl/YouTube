@@ -1,16 +1,14 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.ReportDTO;
+import com.example.youtube.dto.report.ReportDTO;
 import com.example.youtube.dto.attach.PreviewAttachDTO;
 import com.example.youtube.dto.profile.ProfileInfoDTO;
 import com.example.youtube.dto.report.ReportInfo;
 import com.example.youtube.entity.AttachEntity;
-import com.example.youtube.entity.CategoryEntity;
 import com.example.youtube.entity.ProfileEntity;
 import com.example.youtube.entity.ReportEntity;
 import com.example.youtube.enums.Language;
 import com.example.youtube.enums.ReposrtType;
-import com.example.youtube.exp.CategoryNotFoundException;
 import com.example.youtube.exp.ReportAlReadException;
 import com.example.youtube.exp.ReportNotFoundException;
 import com.example.youtube.repository.ReportRepository;
@@ -22,7 +20,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,6 @@
 package com.example.youtube.service;
 
-import com.example.youtube.dto.EmailHistoryResponseDTO;
+import com.example.youtube.dto.email.EmailHistoryResponseDTO;
 import com.example.youtube.entity.EmailHistoryEntity;
 import com.example.youtube.exp.IncorrectDateFormatException;
 import com.example.youtube.repository.EmailHistoryRepository;
