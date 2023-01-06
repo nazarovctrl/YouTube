@@ -1,4 +1,4 @@
-package com.example.youtube.dto;
+package com.example.youtube.dto.report;
 
 import com.example.youtube.entity.ChannelEntity;
 import com.example.youtube.entity.ProfileEntity;

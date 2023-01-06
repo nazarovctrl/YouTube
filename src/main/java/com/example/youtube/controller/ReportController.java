@@ -1,8 +1,7 @@
 package com.example.youtube.controller;
 
-import com.example.youtube.dto.ReportDTO;
+import com.example.youtube.dto.report.ReportDTO;
 import com.example.youtube.dto.report.ReportInfo;
-import com.example.youtube.entity.CategoryEntity;
 import com.example.youtube.entity.ReportEntity;
 import com.example.youtube.enums.Language;
 import com.example.youtube.service.ReportService;

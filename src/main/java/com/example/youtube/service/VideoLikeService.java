@@ -1,9 +1,7 @@
 package com.example.youtube.service;
 
 import com.example.youtube.dto.attach.PreviewAttachDTO;
-import com.example.youtube.dto.channel.ChannelShortDTO;
 import com.example.youtube.dto.channel.ChannelShortInfoDTO;
-import com.example.youtube.dto.video.VideoCreateDTO;
 import com.example.youtube.dto.video.VideoShortDTO;
 import com.example.youtube.dto.videoLike.VideoLikeCreateDTO;
 import com.example.youtube.dto.videoLike.VideoLikeInfo;
@@ -12,7 +10,7 @@ import com.example.youtube.entity.*;
 import com.example.youtube.enums.Language;
 import com.example.youtube.enums.LikeType;
 import com.example.youtube.exp.channel.ChannelNotExistsException;
-import com.example.youtube.exp.tag.TagNotFound;
+import com.example.youtube.exp.comment.LikeNotFoundException;
 import com.example.youtube.exp.videoLike.AlreadyLikedException;
 import com.example.youtube.repository.VideoLikeRepository;
 import com.example.youtube.repository.VideoRepository;
@@ -29,15 +27,18 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class VideoLikeService {
-    @Autowired
-    private VideoRepository videoRepository;
-    @Autowired
-    private VideoLikeRepository videoLikeRepository;
-    @Autowired
-    private ResourceBundleService resourceBundleService;
+    private final VideoRepository videoRepository;
+    private final VideoLikeRepository videoLikeRepository;
+    private final ResourceBundleService resourceBundleService;
 
     @Value("${attach.download.url}")
     private String attachDownloadUrl;
+
+    public VideoLikeService(ResourceBundleService resourceBundleService, VideoRepository videoRepository, VideoLikeRepository videoLikeRepository) {
+        this.resourceBundleService = resourceBundleService;
+        this.videoRepository = videoRepository;
+        this.videoLikeRepository = videoLikeRepository;
+    }
 
     public VideoLikeResponseDTO create(VideoLikeCreateDTO dto, Integer profileId, Language language) {
         Optional<VideoLikeEntity> isLiked = videoLikeRepository.findByProfileIdAndVideoId(profileId, dto.getVideoId());
@@ -75,12 +76,12 @@ public class VideoLikeService {
 
         if (byId.isEmpty()) {
             log.warn("This user is deleting Like: {} but like not found: {}", profileId, id);
-            throw new TagNotFound(resourceBundleService.getMessage("like.not.found", language));
+            throw new LikeNotFoundException(resourceBundleService.getMessage("like.not.found", language));
         }
 
         if (byId.get().getProfileId() != profileId) {
             log.warn("This user is deleting Like: {} but user is not owner: {}", id);
-            throw new TagNotFound(resourceBundleService.getMessage("like.not.found", language));
+            throw new LikeNotFoundException(resourceBundleService.getMessage("like.not.found", language));
         }
 
         videoLikeRepository.delete(byId.get());

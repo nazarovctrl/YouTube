@@ -1,6 +1,6 @@
 package com.example.youtube.controller;
 
-import com.example.youtube.dto.EmailHistoryResponseDTO;
+import com.example.youtube.dto.email.EmailHistoryResponseDTO;
 import com.example.youtube.service.EmailHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
