@@ -9,4 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition(info = @Info(title = "Kun.uz API documentation", version = "1.0", description = ""))
 @ConditionalOnProperty(value = "spring.fox.documentation.enabled", havingValue = "true", matchIfMissing = true)
 public class SwaggerConfig {
+
 }
+
