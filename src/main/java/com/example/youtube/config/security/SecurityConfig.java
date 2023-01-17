@@ -1,6 +1,5 @@
 package com.example.youtube.config.security;
 
-import com.example.youtube.service.CustomUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -58,11 +57,11 @@ public class SecurityConfig {
         // authorization  murojat qilayotgan userni dostupi bormi?
         http.csrf().disable().cors().disable();
         http.authorizeHttpRequests()
+                .requestMatchers(AUTH_WHITELIST).permitAll()
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/attach/public/**").permitAll()
                 .requestMatchers("/channel/get/**").permitAll()
-                .requestMatchers("/playlist/get/by/channel/**").permitAll()
-                .requestMatchers(AUTH_WHITELIST).permitAll()
+                .requestMatchers("/playlist/get/by/**").permitAll()
                 .anyRequest().authenticated()
                 .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 

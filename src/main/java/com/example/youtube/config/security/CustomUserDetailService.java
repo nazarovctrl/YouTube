@@ -1,14 +1,11 @@
-package com.example.youtube.service;
+package com.example.youtube.config.security;
 
-import com.example.youtube.config.security.CustomUserDetails;
 import com.example.youtube.entity.ProfileEntity;
 import com.example.youtube.repository.ProfileRepository;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
