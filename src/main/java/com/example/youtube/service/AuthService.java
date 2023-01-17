@@ -20,6 +20,7 @@ import com.example.youtube.util.JwtUtil;
 import com.example.youtube.util.MD5;
 import io.jsonwebtoken.JwtException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -30,6 +31,8 @@ import java.util.Optional;
 public class AuthService {
     private final ProfileRepository repository;
 
+    @Value("${app.url}")
+    private String appUrl;
     private final MailService mailService;
     private final EmailHistoryService emailHistoryService;
 
@@ -78,7 +81,7 @@ public class AuthService {
             public synchronized void start() {
                 String sb = "Salom qalaysan \n" +
                         "Bu test message" +
-                        "Click the link : http://localhost:7070/auth/verification/email/" +
+                        "Click the link : " + appUrl + "/auth/verification/email/" +
                         JwtUtil.encode(entity.getEmail(), ProfileRole.ROLE_USER);
                 mailService.sendEmail(dto.getEmail(), "Complete Registration", sb);
 
@@ -123,6 +126,8 @@ public class AuthService {
     }
 
     public LoginResponseDTO login(LoginDTO dto, Language language) {
+        System.out.println(dto.getPassword());
+        System.out.println(dto.getEmail());
         Optional<ProfileEntity> optional = repository.findByEmailAndPassword(dto.getEmail(), MD5.md5(dto.getPassword()));
         if (optional.isEmpty()) {
             throw new LoginOrPasswordWrongException(resourceBundleService.getMessage("credential.wrong", language.name()));
@@ -130,7 +135,7 @@ public class AuthService {
 
         ProfileEntity entity = optional.get();
         if (entity.getStatus().equals(ProfileStatus.BLOCK)) {
-            throw new StatusBlockException(resourceBundleService.getMessage("profile.status.block",language.name()));
+            throw new StatusBlockException(resourceBundleService.getMessage("profile.status.block", language.name()));
         }
 
         // TODO

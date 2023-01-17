@@ -18,6 +18,7 @@ import com.example.youtube.util.JwtUtil;
 import com.example.youtube.util.MD5;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,6 +39,8 @@ public class ProfileService {
     private EmailHistoryService emailHistoryService;
     @Autowired
     private MailService mailService;
+    @Value("${app.url}")
+    private String appUrl;
 
 
     public ProfileResponseDTO updatePassword(String password, Integer id, Language language) {
@@ -226,7 +229,7 @@ public class ProfileService {
             public synchronized void start() {
                 String sb = "Salom qalaysan \n" +
                         "Bu test message" +
-                        "Click the link : http://localhost:8080/auth/verification/email/" +
+                        "Click the link : "+appUrl+"/auth/verification/email/" +
                         JwtUtil.encode(entity.getEmail(), entity.getRole());
                 mailService.sendEmail(dto.getEmail(), "Complete Registration", sb);
 
