@@ -30,7 +30,7 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/").allowedOrigins("http://192.168.0.104");
+                registry.addMapping("/").allowedOrigins("http://192.168.0.104").allowedOrigins("http://katkit.space");
             }
         };
     }
